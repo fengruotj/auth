@@ -8,6 +8,10 @@ import java.io.Serializable;
  * Created by dello on 2016/7/27.
  */
 public class Role extends BaseEntity implements Serializable {
+
+    public Role() {
+    }
+
     private Long id;
     private String name;
 

@@ -15,6 +15,9 @@ public class Functions extends BaseEntity implements Serializable{
     private int serialNum;
     private int accordion;
 
+    public Functions() {
+    }
+
     public Functions(Long id, String name, Long parentId, String url, int serialNum, int accordion) {
         this.id = id;
         this.name = name;

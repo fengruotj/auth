@@ -53,21 +53,38 @@ public class UserDao extends BaseDao {
         }
     }
 
+    /**
+     * 保存User对象
+     * @param user user的实体类
+     */
     public void saveUser(User user){
         String sql="insert into auth_user(name,pwd) values(?,?)";
         jdbcTemplate.update(sql,user.getName(),user.getPwd());
     }
 
+    /**
+     * 根据id删除记录
+     * @param id 要删除的ID
+     */
     public void deleteById(Long id){
         String sql="delete from auth_user where id= ?";
         jdbcTemplate.update(sql,id);
     }
 
+    /**
+     *  更新User对象
+     * @param user  更新的user对象
+     */
     public void update(User user){
         String sql="update auth_user set name=?,pwd=? where id= ?";
         jdbcTemplate.update(sql,user.getName(),user.getPwd(),user.getId());
     }
 
+    /**
+     * 查找User对象
+     * @param id 要查找的User对象的id
+     * @return  返回User对象
+     */
     public User findById(Long id){
         String sql="select * from auth_user where id =?";
         try {
@@ -78,6 +95,11 @@ public class UserDao extends BaseDao {
         }
     }
 
+    /**
+     * 根据集合ids查找User对象
+     * @param ids   集合ids元素
+     * @return  返回User集合对象
+     */
     public Collection<User> findByIds(Collection<Long> ids){
         StringBuilder sb=new StringBuilder("select * from auth_user where id in (");
         ids.forEach((id) -> sb.append(id).append(","));

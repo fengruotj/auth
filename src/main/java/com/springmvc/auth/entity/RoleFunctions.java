@@ -13,6 +13,9 @@ public class RoleFunctions extends BaseEntity implements Serializable {
     private Long functionId;
     private int status;
 
+    public RoleFunctions() {
+    }
+
     public RoleFunctions(Long id, Long roleId, Long functionId, int status) {
         Id = id;
         this.roleId = roleId;
